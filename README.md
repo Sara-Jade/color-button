@@ -1,6 +1,7 @@
-# Getting Started with Create React App
+# color-button
+- Following [Testing React with Jest and React Testing Library (RTL)](https://www.udemy.com/course/react-testing-library/) by Bonnie Schulkin, via Udemy.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
