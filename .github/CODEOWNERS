@@ -1,0 +1,6 @@
+# Lines starting with '#' are comments.
+# Define Code Owners that will be required to approve pull requests
+# Docs - https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-code-owners
+# Codeowner Assignment -> Specify admins on the repo
+
+* @Sara-Jade

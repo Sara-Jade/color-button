@@ -1,0 +1,29 @@
+# Please see the documentation for all configuration options:
+# https://docs.github.com/en/code-security/supply-chain-security/configuration-options-for-dependency-updates
+
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    labels:
+      - "dependencies"
+    # Disable version updates for npm dependencies
+    open-pull-requests-limit: 0
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "docker"
+    directory: "/"
+    labels:
+      - "dependencies"
+    # Disable version updates for docker dependencies
+    open-pull-requests-limit: 0
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    labels:
+      - "dependencies"
+    # Disable version updates for github-actions, which we don't use in this project.
+    open-pull-requests-limit: 0
+    schedule:
+      interval: "daily"
