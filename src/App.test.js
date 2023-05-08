@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { logRoles, render, screen } from '@testing-library/react';
 import App from './App';
 
 // // Better to getByRole than by text
@@ -7,6 +7,11 @@ import App from './App';
 //   const link = screen.getByRole('link', { name: 'Learn React'});
 //   expect(link).toBeInTheDocument();
 // });
+
+test('that we can log roles', () => {
+  const { container } = render(<App />);
+  logRoles(container);
+});
 
 test('that the button is initially red', () => {
   render(<App />);
