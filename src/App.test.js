@@ -56,3 +56,21 @@ test('that the button text changes to Change to red when clicked', () => {
   // Final assert
   expect(button).toHaveTextContent('Change to red');
 });
+
+test('that the button is initially enabled', () => {
+  // Arrange
+  render(<App />);
+  const button = screen.getByRole('button', { name: 'Change to blue' });
+
+  // Assert
+  expect(button).toBeEnabled();
+});
+
+test('that the checkbox is initially unchecked', () => {
+  // Arrange
+  render(<App />);
+  const checkbox = screen.getByRole('checkbox');
+
+  // Assert
+  expect(checkbox).not.toBeChecked();
+});
