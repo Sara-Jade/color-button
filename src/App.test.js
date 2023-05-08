@@ -1,15 +1,28 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-// test('renders learn react link', () => {
+// // Better to getByRole than by text
+// test('renders the learn React link', () => {
 //   render(<App />);
-//   const linkElement = screen.getByText(/learn react/i);
-//   expect(linkElement).toBeInTheDocument();
+//   const link = screen.getByRole('link', { name: 'Learn React'});
+//   expect(link).toBeInTheDocument();
 // });
 
-// Better to getByRole than by text
-test('renders the learn React link', () => {
+test('that the button is initially red', () => {
   render(<App />);
-  const link = screen.getByRole('link', { name: 'Learn React'});
-  expect(link).toBeInTheDocument();
+  const button = screen.getByRole('button', { name: 'Change to blue' });
+
+  expect(button).toHaveStyle({ backgroundColor: 'red' });
+});
+
+test('that the button initially has the text Change to blue', () => {
+
+});
+
+test('that the button turns blue when clicked', () => {
+
+});
+
+test('that the button text changes to Change to red when clicked', () => {
+
 });
