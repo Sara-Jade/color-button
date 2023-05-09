@@ -20,6 +20,7 @@ function App() {
         value='isChecked'
         onClick={() => toggleChecked(!isChecked)}
       />
+      <button className='myButton'>Next</button>
     </div>
   );
 }

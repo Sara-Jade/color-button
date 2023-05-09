@@ -1,5 +1,6 @@
 import { fireEvent, logRoles, render, screen } from '@testing-library/react';
 import App from './App';
+// Need to install another library if using toHaveStyle() from imported module.
 
 // // Better to getByRole than by text
 // test('renders the learn React link', () => {
@@ -7,6 +8,16 @@ import App from './App';
 //   const link = screen.getByRole('link', { name: 'Learn React'});
 //   expect(link).toBeInTheDocument();
 // });
+
+test('that the Next button has a green background and appropriate text', () => {
+  render(<App />);
+  const nextButton = screen.getByRole('button', { name: 'Next' });
+
+  // toHaveStyle() vs. imported CSS doesn't work, even with jest-css-transform or jest-css-modules-transform
+  // expect(nextButton).toHaveStyle({ backgroundColor: 'green' });
+
+  expect(nextButton).toHaveTextContent('Next');
+});
 
 test('that we can log roles', () => {
   const { container } = render(<App />);
