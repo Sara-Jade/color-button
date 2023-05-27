@@ -16,7 +16,8 @@ function App() {
       >
         Change to {newButtonColor}
       </button>
-      <input 
+      <input
+        id='my-checkbox'
         type='checkbox' 
         value='isChecked'
         onClick={
@@ -26,6 +27,7 @@ function App() {
           }
         }
       />
+      <label htmlFor='my-checkbox'>Disable button</label>
       <button className='myButton'>Next</button>
     </div>
   );

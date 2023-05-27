@@ -111,7 +111,7 @@ test('that checking the checkbox twice first disables and then re-enables the Ch
     // Arrange
     render(<App />);
     const changeToColorButton = screen.getByRole('button', { name: 'Change to blue' });
-    const checkbox = screen.getByRole('checkbox');
+    const checkbox = screen.getByRole('checkbox', { name: 'Disable button' });
   
     // Initial assert
     expect(changeToColorButton).toBeEnabled();
