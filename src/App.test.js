@@ -2,13 +2,6 @@ import { fireEvent, logRoles, render, screen } from '@testing-library/react';
 import App from './App';
 // Need to install another library if using toHaveStyle() from imported module.
 
-// // Better to getByRole than by text
-// test('renders the learn React link', () => {
-//   render(<App />);
-//   const link = screen.getByRole('link', { name: 'Learn React'});
-//   expect(link).toBeInTheDocument();
-// });
-
 test('that the Next button has a green background and appropriate text', () => {
   render(<App />);
   const nextButton = screen.getByRole('button', { name: 'Next' });
@@ -84,4 +77,58 @@ test('that the checkbox is initially unchecked', () => {
 
   // Assert
   expect(checkbox).not.toBeChecked();
+});
+
+test('that the checkbox is intially enabled', () => {
+  // Arrange
+  render(<App />);
+  const checkbox = screen.getByRole('checkbox');
+
+  // Assert
+  expect(checkbox).toBeEnabled();
+});
+
+test('that checking the checkbox disables the Change to blue/red button', () => {
+  // Arrange
+  render(<App />);
+  const changeToColorButton = screen.getByRole('button', { name: 'Change to blue' });
+  const checkbox = screen.getByRole('checkbox');
+
+  // Pre-act assert
+  expect(changeToColorButton).toBeEnabled();
+  expect(checkbox).toBeEnabled();
+  expect(checkbox).not.toBeChecked();
+
+  // Act
+  fireEvent.click(checkbox);
+
+  // Assert
+  expect(checkbox).toBeChecked();
+  expect(changeToColorButton).toBeDisabled();
+});
+
+test('that checking the checkbox twice first disables and then re-enables the Change to red/blue button', () => {
+    // Arrange
+    render(<App />);
+    const changeToColorButton = screen.getByRole('button', { name: 'Change to blue' });
+    const checkbox = screen.getByRole('checkbox');
+  
+    // Initial assert
+    expect(changeToColorButton).toBeEnabled();
+    expect(checkbox).toBeEnabled();
+    expect(checkbox).not.toBeChecked();
+  
+    // Act
+    fireEvent.click(checkbox);
+  
+    // 2nd assert
+    expect(checkbox).toBeChecked();
+    expect(changeToColorButton).toBeDisabled();
+
+    // Act
+    fireEvent.click(checkbox);
+
+    // Final assert
+    expect(checkbox).not.toBeChecked();
+    expect(changeToColorButton).toBeEnabled();
 });

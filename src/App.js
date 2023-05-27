@@ -5,20 +5,26 @@ function App() {
   const [buttonColor, toggleButtonColor] = useState('red');
   const newButtonColor = buttonColor === 'red' ? 'blue' : 'red';
   const [isChecked, toggleChecked] = useState(false);
+  const [isDisabled, toggleDisableButton] = useState(false);
 
   return (
     <div>
       <button 
         style={{ backgroundColor: buttonColor }}
         onClick={() => toggleButtonColor(newButtonColor)}
-        enabled
+        disabled={isDisabled}
       >
         Change to {newButtonColor}
       </button>
       <input 
         type='checkbox' 
         value='isChecked'
-        onClick={() => toggleChecked(!isChecked)}
+        onClick={
+          () => {
+            toggleChecked(!isChecked);
+            toggleDisableButton(!isChecked);
+          }
+        }
       />
       <button className='myButton'>Next</button>
     </div>
